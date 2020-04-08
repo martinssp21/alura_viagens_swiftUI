@@ -1,0 +1,6 @@
+framework module Pods_Alura_Viagens_SwiftUI {
+  umbrella header "Pods-Alura_Viagens_SwiftUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_Alura_Viagens_SwiftUI_Alura_Viagens_SwiftUIUITests : NSObject
+@end
+@implementation PodsDummy_Pods_Alura_Viagens_SwiftUI_Alura_Viagens_SwiftUIUITests
+@end
