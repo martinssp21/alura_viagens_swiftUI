@@ -17,11 +17,11 @@ struct ContentView: View {
         GeometryReader { view in
             
             VStack {
-                HeaderView()
+                HeaderView(isCompact: self.horizontalSizeClass == .compact)
                     .frame(width: view.size.width, height: self.horizontalSizeClass == .compact ? 200 : 310, alignment: .top)
                 
                 List(viagens) { viagem in
-                    CellViagemView(viagem: viagem)
+                    CellViagemView(viagem: viagem, isCompact: self.horizontalSizeClass == .compact)
                 }
             }
         }

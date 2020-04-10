@@ -10,17 +10,23 @@ import SwiftUI
 
 struct CellViagemView: View {
     var viagem: Viagem
+    var isCompact: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(viagem.titulo)
+                .font(.custom("Avenir", size: self.isCompact ? 14 : 24))
             Image(viagem.imagem)
                 .resizable()
-                .frame(height: 125)
+                .aspectRatio(contentMode: .fill)
+                .frame(height: self.isCompact ? 125 : 200)
+                .clipped()
             HStack {
                 Text(viagem.quantidadeDeDias)
+                    .font(.custom("Avenir", size: self.isCompact ? 14 : 24))
                 Spacer()
                 Text(viagem.valor)
+                    .font(.custom("Avenir", size: self.isCompact ? 14 : 24))
             }
         }
     }
@@ -28,7 +34,14 @@ struct CellViagemView: View {
 
 struct CellViagemView_Previews: PreviewProvider {
     static var previews: some View {
-        CellViagemView(viagem: viagens[0])
-            .previewLayout(.fixed(width: 350, height: 200))
+        Group {
+            CellViagemView(viagem: viagens[0], isCompact: true)
+                .environment(\.horizontalSizeClass, .compact)
+                .previewLayout(.fixed(width: 350, height: 200))
+            
+            CellViagemView(viagem: viagens[0], isCompact: false)
+                .environment(\.horizontalSizeClass, .regular)
+                .previewLayout(.fixed(width: 600, height: 300))
+        }
     }
 }
